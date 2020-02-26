@@ -7,8 +7,12 @@ public class SettingMenu : MonoBehaviour
     public void OnStartUpToggleValueChanged(bool value)
     {
         if (value)
-            Util.SetupStartup("WindowPet.exe");
+        {
+          Debug.Log( Util.SetupStartup("WindowPet.lnk"));
+        }
         else
-            Util.CancelStartup("WindowPet.exe");
+        {
+            Util.CancelStartup("WindowPet.lnk");
+        }
     }
 }

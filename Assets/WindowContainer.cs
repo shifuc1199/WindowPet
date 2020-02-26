@@ -69,7 +69,7 @@ public class WindowContainer : MonoBehaviour
         var margins = new MARGINS() { cxLeftWidth = -1 };
         window_handler = FindWindow(null, UnityEngine.Application.productName);
         SetWindowLong(window_handler, GWL_STYLE, WS_POPUP | WS_VISIBLE);
-        SetWindowLong(window_handler, GWL_EXSTYLE, WS_EX_LAYERED|WS_EX_TOOLWINDOW);
+        SetWindowLong(window_handler, GWL_EXSTYLE, WS_EX_LAYERED|WS_EX_TOOLWINDOW| WS_EX_TRANSPARENT);
         DwmExtendFrameIntoClientArea(window_handler, ref margins);
         SetWindowPos(window_handler, HWND_TOP_MOST, 0, 0, 0, 0, 1|2);
     }
