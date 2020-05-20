@@ -1,8 +1,12 @@
 ﻿using System;
 using System.IO;
+using System.Threading;
 using IWshRuntimeLibrary;
-public class Util    
+using SpeechLib;
+
+public class Util
 {
+    
     public static bool SetupStartup(string short_name)
     {
         var start_up_dir = Environment.GetFolderPath(Environment.SpecialFolder.Startup);

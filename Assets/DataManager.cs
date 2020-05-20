@@ -2,15 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 using LitJson;
-public class DataManager : MonoBehaviour
+public class DataManager 
 {
-    public static DataManager Instance;
+  
 
-    DataModel model;
-    private void Awake()
-    {
-        Instance = this;
-    }
      public void SaveData()
     {
 

@@ -6,6 +6,10 @@ public class ModelCtr : MonoBehaviour
 {
     Vector3 offset;
     bool isMouseEnter = false;
+    private void Awake()
+    {
+    }
+   
     private void OnMouseDown()
     {
         offset = transform.position - Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, Mathf.Abs(Camera.main.transform.position.z)));
