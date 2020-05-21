@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-public class SettingMenu : MonoBehaviour
+using DreamerTool.UI;
+public class SettingView : View
 {
     public void OnStartUpToggleValueChanged(bool value)
     {

@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-public class AddTimeView : MonoBehaviour
+using DreamerTool.UI;
+public class AddTimeView : View
 {
     public InputField desText;
     public Text timeText;
@@ -47,7 +48,7 @@ public class AddTimeView : MonoBehaviour
     }
     public void AddClock()
     {
-        DataModel.Model.RemainTime.Add(new ClockModel(dayTime, desText.text));
+        DataModel.Model.AddRemainTime(new ClockModel(dayTime, desText.text));
         gameObject.SetActive(false);
         EventHandler.OnAddClock?.Invoke();
     }

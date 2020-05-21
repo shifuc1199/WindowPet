@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-public class ClockTip : MonoBehaviour
+using DreamerTool.UI;
+public class ClockTipView : View
 {
     public float tipTime;
     public Text timeText;

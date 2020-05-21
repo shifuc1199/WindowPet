@@ -4,14 +4,23 @@ using UnityEngine;
 using LitJson;
 public class DataManager 
 {
-  
+    public const string dataKey = "data";
 
-     public void SaveData()
+    public static DataModel GetData()
     {
-
+        if(PlayerPrefs.HasKey(dataKey))
+        {
+            return JsonMapper.ToObject<DataModel>(PlayerPrefs.GetString("data"));
+        }
+        return null;
     }
-    private void OnApplicationQuit()
+    public static void ClearData()
     {
-        SaveData();
+        PlayerPrefs.DeleteKey(dataKey);
     }
+    public static void SaveData()
+    {
+       PlayerPrefs.SetString(dataKey, JsonMapper.ToJson(DataModel.Model));
+    }
+    
 }

@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using DreamerTool.UI;
 public class ModelCtr : MonoBehaviour
 {
     Vector3 offset;
@@ -15,12 +15,12 @@ public class ModelCtr : MonoBehaviour
         offset = transform.position - Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, Mathf.Abs(Camera.main.transform.position.z)));
 
     }
- 
+    
     private void OnMouseOver()
     {
        if(Input.GetKeyDown(KeyCode.Mouse1))
         {
-            UIManager._instance.SettingMenu.SetActive(true);
+            View.CurrentScene.OpenView<FunctionMenuView>();
         }
         
     }

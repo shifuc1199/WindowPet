@@ -1,11 +1,11 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
-public class ClockView : MonoBehaviour
+using DreamerTool.UI;
+public class ClockView : View
 {
     public GameObject clockCell;
-
+    public Transform root;
     List<TimeCell> cells = new List<TimeCell>();
     // Start is called before the first frame update
     void Awake()
@@ -13,13 +13,20 @@ public class ClockView : MonoBehaviour
         EventHandler.OnAddClock += UpdateCell;
         UpdateCell();
     }
+    public void RemoveCell(TimeCell cell)
+    {
+        Destroy(cell.gameObject);
+        cells.Remove(cell);
+    }
     public void UpdateCell()
     {
+ 
         foreach (var time in DataModel.Model.RemainTime)
         {
+         
             if (!cells.Exists(a=> { return a.GetModel() == time; }))
             {
-                var cell = Instantiate(clockCell, transform);
+                var cell = Instantiate(clockCell, root);
                 cell.GetComponent<TimeCell>().SetModel(time);
                 cells.Add(cell.GetComponent<TimeCell>());
             }
@@ -33,6 +40,6 @@ public class ClockView : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+      
     }
 }
